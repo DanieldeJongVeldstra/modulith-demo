@@ -12,13 +12,13 @@ import java.util.List;
 
 @AggregateRoot
 @Getter
-public class Order extends AbstractAggregateRoot<Order> {
+public class ProductOrder extends AbstractAggregateRoot<ProductOrder> {
     @Identity
-    @AttributeOverride(name = "value", column = @Column(name = "id"))
+    @AttributeOverride(name = "value", column = @Column(name = "order_id"))
     private final OrderId id;
     private final List<OrderLine> orderLines = new ArrayList<>();
 
-    public Order(List<OrderLine.OrderLineDef> orderLines) {
+    public ProductOrder(List<OrderLine.OrderLineDef> orderLines) {
         this.id = OrderId.random();
         orderLines.forEach(orderLineDef ->
                 this.orderLines.add(new OrderLine(orderLineDef)));

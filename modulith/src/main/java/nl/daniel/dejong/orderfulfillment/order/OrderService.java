@@ -8,13 +8,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class OrderFulfillmentService {
+public class OrderService {
+    private final OrderRepository orderRepository;
     private final ReservationAPI reservationAPI;
 
     public void createOrder(List<OrderLine.OrderLineDef> orderLines) {
-        Order order = new Order(orderLines);
+        ProductOrder productOrder = new ProductOrder(orderLines);
+        productOrder.getOrderLines().forEach(orderLine ->
+                reservationAPI.reserveProduct(productOrder.getId().toString(), orderLine.getProductId(), orderLine.getQuantity()));
 
-        order.getOrderLines().forEach(orderLine ->
-                reservationAPI.reserveProduct(order.getId().toString(), orderLine.getProductId(), orderLine.getQuantity()));
+        orderRepository.save(productOrder);
     }
 }

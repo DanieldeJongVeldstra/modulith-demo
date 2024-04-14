@@ -15,7 +15,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.1</version>
+        <version>3.2.4</version>
     </parent>
 
     <properties>
@@ -23,13 +23,14 @@
         <maven.compiler.target>19</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <jmolecules.version>2023.1.0</jmolecules.version>
-        <spring-modulith.version>1.1.0</spring-modulith.version>
+        <!-- See https://github.com/xmolecules/jmolecules-bom for version compatibility  -->
+        <jmolecules.version>2023.1.2</jmolecules.version>
+        <jmolecules-integrations.version>0.19.0</jmolecules-integrations.version>
+        <spring-modulith.version>1.1.3</spring-modulith.version>
         <archunit-junit5.version>1.0.0</archunit-junit5.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <byte-buddy-maven-plugin.version>1.14.9</byte-buddy-maven-plugin.version>
         <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
-        <jmolecules-bytebuddy.version>0.17.0</jmolecules-bytebuddy.version>
     </properties>
 
     <dependencyManagement>
@@ -85,7 +86,7 @@
                         <dependency>
                             <groupId>org.jmolecules.integrations</groupId>
                             <artifactId>jmolecules-bytebuddy</artifactId>
-                            <version>${jmolecules-bytebuddy.version}</version>
+                            <version>0.19.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
