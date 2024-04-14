@@ -2,7 +2,7 @@ package nl.daniel.dejong.orderfulfillment.order;
 
 import lombok.RequiredArgsConstructor;
 import nl.daniel.dejong.inventorymanagement.ReservationAPI;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderCreated;
+import nl.daniel.dejong.orderfulfillment.ProductOrderCreated;
 import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderLine;
 import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderService;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ class ProductOrderServiceTest {
         Mockito.when(reservationAPI.reserveProduct(Mockito.anyString(), Mockito.contains("Sprite"), Mockito.eq(10)))
                 .thenReturn("Reservation 2");
 
-        scenario.stimulate(() -> sut.createOrder(orderLineDefs))
+        scenario.stimulate(() -> sut.createOrder("Daniel", orderLineDefs))
                 .andWaitForEventOfType(ProductOrderCreated.class)
                 .toArrive();
     }

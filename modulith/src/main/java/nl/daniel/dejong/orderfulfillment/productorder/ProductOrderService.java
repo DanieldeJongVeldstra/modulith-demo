@@ -12,8 +12,8 @@ public class ProductOrderService {
     private final ProductOrderRepository productOrderRepository;
     private final ReservationAPI reservationAPI;
 
-    public void createOrder(List<ProductOrderLine.OrderLineDef> orderLines) {
-        ProductOrder productOrder = new ProductOrder(orderLines);
+    public void createOrder(String requester, List<ProductOrderLine.OrderLineDef> orderLines) {
+        ProductOrder productOrder = new ProductOrder(requester, orderLines);
         productOrder.getProductOrderLines().forEach(orderLine ->
                 reservationAPI.reserveProduct(productOrder.getId().toString(), orderLine.getProductId(), orderLine.getQuantity()));
 

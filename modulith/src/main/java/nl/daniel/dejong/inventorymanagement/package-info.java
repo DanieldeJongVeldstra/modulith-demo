@@ -1,7 +1,9 @@
 @ApplicationModule(
         displayName = "Inventory Management",
         allowedDependencies = {
-                "common"
+                "common",
+                //DEMO: Uncomment for choreography
+                //"orderfulfillment",
         }
 )
 package nl.daniel.dejong.inventorymanagement;

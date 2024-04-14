@@ -3,7 +3,6 @@ package nl.daniel.dejong.orderfulfillment;
 import lombok.RequiredArgsConstructor;
 import nl.daniel.dejong.inventorymanagement.product.Product;
 import nl.daniel.dejong.inventorymanagement.product.ProductRepository;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderCreated;
 import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderLine;
 import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderService;
 import org.junit.jupiter.api.Test;
@@ -23,10 +22,12 @@ public class OrderFulfillmentIntegrationTest {
         productRepository.save(new Product("Cola", 10));
         productRepository.save(new Product("Sprite", 10));
 
-        scenario.stimulate(() -> productOrderService.createOrder(List.of(
-                        new ProductOrderLine.OrderLineDef("Cola", 10),
-                        new ProductOrderLine.OrderLineDef("Sprite", 10)
-                )))
+        scenario.stimulate(() -> productOrderService.createOrder(
+                        "Daniel",
+                        List.of(
+                                new ProductOrderLine.OrderLineDef("Cola", 10),
+                                new ProductOrderLine.OrderLineDef("Sprite", 10)
+                        )))
                 .andWaitForEventOfType(ProductOrderCreated.class)
                 .toArrive();
     }

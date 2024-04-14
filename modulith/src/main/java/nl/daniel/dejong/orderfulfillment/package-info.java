@@ -1,8 +1,8 @@
 @ApplicationModule(
         displayName = "Order Fulfillment",
         allowedDependencies = {
+                "common",
                 "inventorymanagement",
-                "common"
         }
 )
 package nl.daniel.dejong.orderfulfillment;
