@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.modulith.test.ApplicationModuleTest;
 import org.springframework.modulith.test.Scenario;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @ApplicationModuleTest
 @RequiredArgsConstructor
 class InventoryManagementIntegrationTest {
