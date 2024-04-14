@@ -1,4 +1,4 @@
-package nl.daniel.dejong.orderfulfillment.order;
+package nl.daniel.dejong.orderfulfillment.productorder;
 
 import lombok.RequiredArgsConstructor;
 import nl.daniel.dejong.inventorymanagement.ReservationAPI;
@@ -8,15 +8,15 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class OrderService {
-    private final OrderRepository orderRepository;
+public class ProductOrderService {
+    private final ProductOrderRepository productOrderRepository;
     private final ReservationAPI reservationAPI;
 
-    public void createOrder(List<OrderLine.OrderLineDef> orderLines) {
+    public void createOrder(List<ProductOrderLine.OrderLineDef> orderLines) {
         ProductOrder productOrder = new ProductOrder(orderLines);
-        productOrder.getOrderLines().forEach(orderLine ->
+        productOrder.getProductOrderLines().forEach(orderLine ->
                 reservationAPI.reserveProduct(productOrder.getId().toString(), orderLine.getProductId(), orderLine.getQuantity()));
 
-        orderRepository.save(productOrder);
+        productOrderRepository.save(productOrder);
     }
 }

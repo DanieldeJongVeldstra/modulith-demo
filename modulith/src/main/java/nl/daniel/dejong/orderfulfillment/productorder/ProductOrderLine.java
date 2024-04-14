@@ -1,4 +1,4 @@
-package nl.daniel.dejong.orderfulfillment.order;
+package nl.daniel.dejong.orderfulfillment.productorder;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
@@ -8,15 +8,15 @@ import org.jmolecules.ddd.annotation.Identity;
 
 @Entity
 @Getter
-public class OrderLine {
+public class ProductOrderLine {
     @Identity
     @AttributeOverride(name = "value", column = @Column(name = "id"))
-    private final OrderLineId id;
+    private final ProductOrderLineId id;
     private final String productId;
     private final int quantity;
 
-    public OrderLine(OrderLineDef orderLineDef) {
-        this.id = OrderLineId.random();
+    public ProductOrderLine(OrderLineDef orderLineDef) {
+        this.id = ProductOrderLineId.random();
         this.productId = orderLineDef.productId();
         this.quantity = orderLineDef.quantity();
     }

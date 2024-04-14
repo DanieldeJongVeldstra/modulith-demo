@@ -1,22 +1,22 @@
-package nl.daniel.dejong.orderfulfillment.order;
+package nl.daniel.dejong.orderfulfillment.productorder;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import nl.daniel.dejong.common.URN;
 
 import java.util.UUID;
 
-public class OrderLineId extends URN<UUID> {
+public class ProductOrderLineId extends URN<UUID> {
     public final static String NAMESPACE = "order-line";
-    public OrderLineId(UUID value) {
+    public ProductOrderLineId(UUID value) {
         super(value, NAMESPACE);
     }
 
-    public OrderLineId() {
+    public ProductOrderLineId() {
         super(null, NAMESPACE);
     }
 
-    public static OrderLineId random() {
-        return new OrderLineId(UUID.randomUUID());
+    public static ProductOrderLineId random() {
+        return new ProductOrderLineId(UUID.randomUUID());
     }
 
     @JsonValue

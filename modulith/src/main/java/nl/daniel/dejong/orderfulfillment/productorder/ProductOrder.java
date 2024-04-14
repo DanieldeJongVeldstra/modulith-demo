@@ -1,4 +1,4 @@
-package nl.daniel.dejong.orderfulfillment.order;
+package nl.daniel.dejong.orderfulfillment.productorder;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
@@ -15,14 +15,14 @@ import java.util.List;
 public class ProductOrder extends AbstractAggregateRoot<ProductOrder> {
     @Identity
     @AttributeOverride(name = "value", column = @Column(name = "order_id"))
-    private final OrderId id;
-    private final List<OrderLine> orderLines = new ArrayList<>();
+    private final ProductOrderId id;
+    private final List<ProductOrderLine> productOrderLines = new ArrayList<>();
 
-    public ProductOrder(List<OrderLine.OrderLineDef> orderLines) {
-        this.id = OrderId.random();
+    public ProductOrder(List<ProductOrderLine.OrderLineDef> orderLines) {
+        this.id = ProductOrderId.random();
         orderLines.forEach(orderLineDef ->
-                this.orderLines.add(new OrderLine(orderLineDef)));
+                this.productOrderLines.add(new ProductOrderLine(orderLineDef)));
 
-        registerEvent(new OrderCreated(id, this.orderLines));
+        registerEvent(new ProductOrderCreated(id, this.productOrderLines));
     }
 }

@@ -12,12 +12,4 @@ class ModularityTests {
     void verifiesModularStructure() {
         modules.verify();
     }
-
-    @Test
-    void createModuleDocumentation() {
-        new Documenter(modules).writeDocumentation(
-                Documenter.DiagramOptions.defaults(),
-                Documenter.CanvasOptions.defaults().revealInternals()
-        );
-    }
 }

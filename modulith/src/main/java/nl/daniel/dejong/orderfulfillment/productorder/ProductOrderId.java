@@ -1,4 +1,4 @@
-package nl.daniel.dejong.orderfulfillment.order;
+package nl.daniel.dejong.orderfulfillment.productorder;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.EqualsAndHashCode;
@@ -9,18 +9,18 @@ import java.util.UUID;
 
 @ValueObject
 @EqualsAndHashCode(callSuper = true)
-public class OrderId extends URN<UUID> {
+public class ProductOrderId extends URN<UUID> {
     public final static String NAMESPACE = "order";
-    public OrderId(UUID value) {
+    public ProductOrderId(UUID value) {
         super(value, NAMESPACE);
     }
 
-    public OrderId() {
+    public ProductOrderId() {
         super(null, NAMESPACE);
     }
 
-    public static OrderId random() {
-        return new OrderId(UUID.randomUUID());
+    public static ProductOrderId random() {
+        return new ProductOrderId(UUID.randomUUID());
     }
 
     @JsonValue
