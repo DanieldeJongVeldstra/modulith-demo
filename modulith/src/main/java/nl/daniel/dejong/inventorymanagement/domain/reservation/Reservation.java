@@ -1,9 +1,12 @@
-package nl.daniel.dejong.inventorymanagement.reservation;
+package nl.daniel.dejong.inventorymanagement.domain.reservation;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import lombok.Getter;
-import nl.daniel.dejong.inventorymanagement.product.ProductId;
+import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.events.ReservationCreated;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.valueobjects.AvailableStock;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.valueobjects.ReservationId;
 import org.jmolecules.ddd.annotation.AggregateRoot;
 import org.jmolecules.ddd.annotation.Identity;
 import org.springframework.data.domain.AbstractAggregateRoot;

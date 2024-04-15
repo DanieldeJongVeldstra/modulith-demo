@@ -1,4 +1,4 @@
-package nl.daniel.dejong.orderfulfillment.productorder;
+package nl.daniel.dejong.orderfulfillment.domain.valueobjects;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import nl.daniel.dejong.common.URN;

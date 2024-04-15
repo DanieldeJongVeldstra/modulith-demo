@@ -3,7 +3,7 @@
 //
 //import lombok.RequiredArgsConstructor;
 //import nl.daniel.dejong.inventorymanagement.product.ProductId;
-//import nl.daniel.dejong.orderfulfillment.ProductOrderCreated;
+//import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
 //import org.springframework.stereotype.Component;
 //
 //@Component

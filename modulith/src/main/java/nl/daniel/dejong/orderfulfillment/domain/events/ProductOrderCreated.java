@@ -1,6 +1,6 @@
-package nl.daniel.dejong.orderfulfillment;
+package nl.daniel.dejong.orderfulfillment.domain.events;
 
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderId;
+import nl.daniel.dejong.orderfulfillment.domain.valueobjects.ProductOrderId;
 import org.jmolecules.event.annotation.DomainEvent;
 
 import java.util.List;

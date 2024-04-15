@@ -1,7 +1,9 @@
-package nl.daniel.dejong.orderfulfillment.productorder;
+package nl.daniel.dejong.orderfulfillment.application;
 
 import lombok.RequiredArgsConstructor;
 import nl.daniel.dejong.inventorymanagement.ReservationAPI;
+import nl.daniel.dejong.orderfulfillment.domain.ProductOrder;
+import nl.daniel.dejong.orderfulfillment.domain.ProductOrderLine;
 import org.jmolecules.ddd.annotation.Service;
 
 import java.util.List;

@@ -1,9 +1,9 @@
 package nl.daniel.dejong.inventorymanagement;
 
 import lombok.RequiredArgsConstructor;
-import nl.daniel.dejong.inventorymanagement.product.Product;
-import nl.daniel.dejong.inventorymanagement.product.ProductRepository;
-import nl.daniel.dejong.inventorymanagement.reservation.ReservationCreated;
+import nl.daniel.dejong.inventorymanagement.domain.product.Product;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.events.ReservationCreated;
+import nl.daniel.dejong.inventorymanagement.infrastructure.persistence.ProductJpaRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.modulith.test.ApplicationModuleTest;
 import org.springframework.modulith.test.Scenario;
@@ -12,7 +12,7 @@ import org.springframework.modulith.test.Scenario;
 @RequiredArgsConstructor
 class InventoryManagementIntegrationTest {
     private final ReservationAPI reservationAPI;
-    private final ProductRepository productRepository;
+    private final ProductJpaRepository productRepository;
 
     @Test
     void reserveProduct(Scenario scenario) {

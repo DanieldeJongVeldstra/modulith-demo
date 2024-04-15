@@ -1,9 +1,10 @@
-package nl.daniel.dejong.orderfulfillment.productorder;
+package nl.daniel.dejong.orderfulfillment.domain;
 
 import jakarta.persistence.AttributeOverride;
 import jakarta.persistence.Column;
 import lombok.Getter;
-import nl.daniel.dejong.orderfulfillment.ProductOrderCreated;
+import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
+import nl.daniel.dejong.orderfulfillment.domain.valueobjects.ProductOrderId;
 import org.jmolecules.ddd.annotation.AggregateRoot;
 import org.jmolecules.ddd.annotation.Identity;
 import org.springframework.data.domain.AbstractAggregateRoot;

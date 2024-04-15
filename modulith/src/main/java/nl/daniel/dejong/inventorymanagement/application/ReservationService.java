@@ -1,9 +1,10 @@
-package nl.daniel.dejong.inventorymanagement.reservation;
+package nl.daniel.dejong.inventorymanagement.application;
 
 import lombok.RequiredArgsConstructor;
-import nl.daniel.dejong.inventorymanagement.product.Product;
-import nl.daniel.dejong.inventorymanagement.product.ProductId;
-import nl.daniel.dejong.inventorymanagement.product.ProductRepository;
+import nl.daniel.dejong.inventorymanagement.domain.product.Product;
+import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.Reservation;
+import nl.daniel.dejong.inventorymanagement.domain.reservation.valueobjects.AvailableStock;
 import org.jmolecules.ddd.annotation.Service;
 
 @Service

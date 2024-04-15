@@ -1,10 +1,11 @@
 package nl.daniel.dejong.orderfulfillment;
 
 import lombok.RequiredArgsConstructor;
-import nl.daniel.dejong.inventorymanagement.product.Product;
-import nl.daniel.dejong.inventorymanagement.product.ProductRepository;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderLine;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderService;
+import nl.daniel.dejong.inventorymanagement.domain.product.Product;
+import nl.daniel.dejong.inventorymanagement.infrastructure.persistence.ProductJpaRepository;
+import nl.daniel.dejong.orderfulfillment.application.ProductOrderService;
+import nl.daniel.dejong.orderfulfillment.domain.ProductOrderLine;
+import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
 import org.junit.jupiter.api.Test;
 import org.springframework.modulith.test.ApplicationModuleTest;
 import org.springframework.modulith.test.Scenario;
@@ -15,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderFulfillmentIntegrationTest {
     private final ProductOrderService productOrderService;
-    private final ProductRepository productRepository;
+    private final ProductJpaRepository productRepository;
 
     @Test
     void createOrder(Scenario scenario) {

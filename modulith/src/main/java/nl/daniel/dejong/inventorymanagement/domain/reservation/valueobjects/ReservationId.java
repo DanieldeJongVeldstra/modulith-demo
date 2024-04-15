@@ -1,4 +1,4 @@
-package nl.daniel.dejong.inventorymanagement.reservation;
+package nl.daniel.dejong.inventorymanagement.domain.reservation.valueobjects;
 
 import nl.daniel.dejong.common.URN;
 

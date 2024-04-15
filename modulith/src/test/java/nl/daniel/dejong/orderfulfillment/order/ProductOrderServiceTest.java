@@ -2,9 +2,9 @@ package nl.daniel.dejong.orderfulfillment.order;
 
 import lombok.RequiredArgsConstructor;
 import nl.daniel.dejong.inventorymanagement.ReservationAPI;
-import nl.daniel.dejong.orderfulfillment.ProductOrderCreated;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderLine;
-import nl.daniel.dejong.orderfulfillment.productorder.ProductOrderService;
+import nl.daniel.dejong.orderfulfillment.application.ProductOrderService;
+import nl.daniel.dejong.orderfulfillment.domain.ProductOrderLine;
+import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;

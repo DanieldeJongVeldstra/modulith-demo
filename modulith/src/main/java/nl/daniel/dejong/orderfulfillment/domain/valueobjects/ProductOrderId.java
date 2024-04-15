@@ -1,20 +1,26 @@
-package nl.daniel.dejong.inventorymanagement.product;
+package nl.daniel.dejong.orderfulfillment.domain.valueobjects;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.EqualsAndHashCode;
 import nl.daniel.dejong.common.URN;
 import org.jmolecules.ddd.annotation.ValueObject;
 
+import java.util.UUID;
+
 @ValueObject
 @EqualsAndHashCode(callSuper = true)
-public class ProductId extends URN<String> {
-    public final static String NAMESPACE = "product";
-    public ProductId(String value) {
+public class ProductOrderId extends URN<UUID> {
+    public final static String NAMESPACE = "order";
+    public ProductOrderId(UUID value) {
         super(value, NAMESPACE);
     }
 
-    public ProductId() {
+    public ProductOrderId() {
         super(null, NAMESPACE);
+    }
+
+    public static ProductOrderId random() {
+        return new ProductOrderId(UUID.randomUUID());
     }
 
     @JsonValue
