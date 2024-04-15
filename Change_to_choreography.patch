@@ -1,0 +1,113 @@
+Subject: [PATCH] Change to choreography
+---
+Index: modulith/src/main/java/nl/daniel/dejong/inventorymanagement/package-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/package-info.java b/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/package-info.java
+--- a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/package-info.java	(revision 03ec572f471a59f85132544714ab5765994c1b17)
++++ b/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/package-info.java	(date 1713214473331)
+@@ -3,7 +3,7 @@
+         allowedDependencies = {
+                 "common",
+                 //DEMO: Uncomment for choreography
+-                //"orderfulfillment::product-order-events",
++                "orderfulfillment::product-order-events",
+         }
+ )
+ package nl.daniel.dejong.inventorymanagement;
+Index: modulith/src/main/java/nl/daniel/dejong/orderfulfillment/application/ProductOrderService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/application/ProductOrderService.java b/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/application/ProductOrderService.java
+--- a/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/application/ProductOrderService.java	(revision 03ec572f471a59f85132544714ab5765994c1b17)
++++ b/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/application/ProductOrderService.java	(date 1713214706754)
+@@ -1,7 +1,6 @@
+ package nl.daniel.dejong.orderfulfillment.application;
+ 
+ import lombok.RequiredArgsConstructor;
+-import nl.daniel.dejong.inventorymanagement.ReservationAPI;
+ import nl.daniel.dejong.orderfulfillment.domain.ProductOrder;
+ import nl.daniel.dejong.orderfulfillment.domain.ProductOrderLine;
+ import org.jmolecules.ddd.annotation.Service;
+@@ -12,12 +11,9 @@
+ @RequiredArgsConstructor
+ public class ProductOrderService {
+     private final ProductOrderRepository productOrderRepository;
+-    private final ReservationAPI reservationAPI;
+ 
+     public void createOrder(String requester, List<ProductOrderLine.OrderLineDef> orderLines) {
+         ProductOrder productOrder = new ProductOrder(requester, orderLines);
+-        productOrder.getProductOrderLines().forEach(orderLine ->
+-                reservationAPI.reserveProduct(productOrder.getId().toString(), orderLine.getProductId(), orderLine.getQuantity()));
+ 
+         productOrderRepository.save(productOrder);
+     }
+Index: modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrastructure/event/ProductOrderListener.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrastructure/event/ProductOrderListener.java b/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrastructure/event/ProductOrderListener.java
+--- a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrastructure/event/ProductOrderListener.java	(revision 03ec572f471a59f85132544714ab5765994c1b17)
++++ b/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrastructure/event/ProductOrderListener.java	(date 1713214473304)
+@@ -1,20 +1,20 @@
+ //DEMO: Uncommment for choreography
+-//package nl.daniel.dejong.inventorymanagement.infrastructure.event;
+-//
+-//import lombok.RequiredArgsConstructor;
+-//import nl.daniel.dejong.inventorymanagement.application.ReservationService;
+-//import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
+-//import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
+-//import org.springframework.stereotype.Component;
+-//
+-//@Component
+-//@RequiredArgsConstructor
+-//public class ProductOrderListener {
+-//    private final ReservationService reservationService;
+-//
+-//    public void onProductOrderCreated(ProductOrderCreated event) {
+-//        event.productOrderLines().forEach(productOrderLine -> {
+-//            reservationService.reserveProduct(event.orderOwner(), new ProductId(productOrderLine.productId()), productOrderLine.quantity());
+-//        });
+-//    }
+-//}
++package nl.daniel.dejong.inventorymanagement.infrastructure.event;
++
++import lombok.RequiredArgsConstructor;
++import nl.daniel.dejong.inventorymanagement.application.ReservationService;
++import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
++import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
++import org.springframework.stereotype.Component;
++
++@Component
++@RequiredArgsConstructor
++public class ProductOrderListener {
++    private final ReservationService reservationService;
++
++    public void onProductOrderCreated(ProductOrderCreated event) {
++        event.productOrderLines().forEach(productOrderLine -> {
++            reservationService.reserveProduct(event.orderOwner(), new ProductId(productOrderLine.productId()), productOrderLine.quantity());
++        });
++    }
++}
+Index: modulith/src/main/java/nl/daniel/dejong/orderfulfillment/package-info.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/package-info.java b/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/package-info.java
+--- a/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/package-info.java	(revision 03ec572f471a59f85132544714ab5765994c1b17)
++++ b/modulith/src/main/java/nl/daniel/dejong/orderfulfillment/package-info.java	(date 1713214473359)
+@@ -3,7 +3,7 @@
+         allowedDependencies = {
+                 "common",
+                 //DEMO Comment for choreography
+-                "inventorymanagement",
++                //"inventorymanagement",
+         }
+ )
+ package nl.daniel.dejong.orderfulfillment;
