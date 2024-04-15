@@ -19,8 +19,8 @@
     </parent>
 
     <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- See https://github.com/xmolecules/jmolecules-bom for version compatibility  -->
@@ -30,7 +30,6 @@
         <archunit-junit5.version>1.0.0</archunit-junit5.version>
         <maven-compiler-plugin.version>3.5.1</maven-compiler-plugin.version>
         <byte-buddy-maven-plugin.version>1.14.9</byte-buddy-maven-plugin.version>
-        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     </properties>
 
     <dependencyManagement>
@@ -86,7 +85,7 @@
                         <dependency>
                             <groupId>org.jmolecules.integrations</groupId>
                             <artifactId>jmolecules-bytebuddy</artifactId>
-                            <version>0.19.0</version>
+                            <version>${jmolecules-integrations.version}</version>
                         </dependency>
                     </dependencies>
                 </plugin>

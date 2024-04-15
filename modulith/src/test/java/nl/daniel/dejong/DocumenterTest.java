@@ -12,7 +12,7 @@ public class DocumenterTest {
     void createModuleDocumentation() {
         new org.springframework.modulith.docs.Documenter(modules).writeDocumentation(
                 org.springframework.modulith.docs.Documenter.DiagramOptions.defaults(),
-                org.springframework.modulith.docs.Documenter.CanvasOptions.defaults()
+                org.springframework.modulith.docs.Documenter.CanvasOptions.defaults().revealInternals()
         );
     }
 }

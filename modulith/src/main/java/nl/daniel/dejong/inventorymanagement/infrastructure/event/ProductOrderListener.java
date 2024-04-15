@@ -1,8 +1,9 @@
 //DEMO: Uncommment for choreography
-//package nl.daniel.dejong.inventorymanagement.reservation;
+//package nl.daniel.dejong.inventorymanagement.infrastructure.event;
 //
 //import lombok.RequiredArgsConstructor;
-//import nl.daniel.dejong.inventorymanagement.product.ProductId;
+//import nl.daniel.dejong.inventorymanagement.application.ReservationService;
+//import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
 //import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
 //import org.springframework.stereotype.Component;
 //

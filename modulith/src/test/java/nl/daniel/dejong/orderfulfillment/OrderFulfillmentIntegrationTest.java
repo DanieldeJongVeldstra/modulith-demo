@@ -12,7 +12,7 @@ import org.springframework.modulith.test.Scenario;
 
 import java.util.List;
 
-@ApplicationModuleTest(ApplicationModuleTest.BootstrapMode.DIRECT_DEPENDENCIES)
+@ApplicationModuleTest(extraIncludes = "inventorymanagement")
 @RequiredArgsConstructor
 public class OrderFulfillmentIntegrationTest {
     private final ProductOrderService productOrderService;

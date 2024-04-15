@@ -2,6 +2,7 @@
         displayName = "Order Fulfillment",
         allowedDependencies = {
                 "common",
+                //DEMO Comment for choreography
                 "inventorymanagement",
         }
 )

@@ -1,6 +1,5 @@
 package nl.daniel.dejong.orderfulfillment.domain.valueobjects;
 
-import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.EqualsAndHashCode;
 import nl.daniel.dejong.common.URN;
 import org.jmolecules.ddd.annotation.ValueObject;
@@ -23,7 +22,6 @@ public class ProductOrderId extends URN<UUID> {
         return new ProductOrderId(UUID.randomUUID());
     }
 
-    @JsonValue
     public String toString() {
         return super.toString();
     }
