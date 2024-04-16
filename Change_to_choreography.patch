@@ -81,6 +81,7 @@ diff --git a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrast
 +import nl.daniel.dejong.inventorymanagement.application.ReservationService;
 +import nl.daniel.dejong.inventorymanagement.domain.product.valueobjects.ProductId;
 +import nl.daniel.dejong.orderfulfillment.domain.events.ProductOrderCreated;
++import org.springframework.modulith.events.ApplicationModuleListener;
 +import org.springframework.stereotype.Component;
 +
 +@Component
@@ -88,6 +89,7 @@ diff --git a/modulith/src/main/java/nl/daniel/dejong/inventorymanagement/infrast
 +public class ProductOrderListener {
 +    private final ReservationService reservationService;
 +
++    @ApplicationEventListener
 +    public void onProductOrderCreated(ProductOrderCreated event) {
 +        event.productOrderLines().forEach(productOrderLine -> {
 +            reservationService.reserveProduct(event.orderOwner(), new ProductId(productOrderLine.productId()), productOrderLine.quantity());
