@@ -1,5 +1,6 @@
 package nl.daniel.dejong.inventorymanagement.domain.product.valueobjects;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.EqualsAndHashCode;
 import nl.daniel.dejong.common.URN;
 import org.jmolecules.ddd.annotation.ValueObject;
@@ -16,6 +17,7 @@ public class ProductId extends URN<String> {
         super(null, NAMESPACE);
     }
 
+    @JsonValue
     public String toString() {
         return super.toString();
     }

@@ -1,5 +1,6 @@
 package nl.daniel.dejong.inventorymanagement.domain.reservation.valueobjects;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import nl.daniel.dejong.common.URN;
 
 import java.util.UUID;
@@ -16,5 +17,10 @@ public class ReservationId extends URN<UUID> {
 
     public static ReservationId random() {
         return new ReservationId(UUID.randomUUID());
+    }
+
+    @JsonValue
+    public String toString() {
+        return super.toString();
     }
 }

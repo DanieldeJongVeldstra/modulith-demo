@@ -3,7 +3,7 @@
         allowedDependencies = {
                 "common",
                 //DEMO Comment for choreography
-                "inventorymanagement",
+                //"inventorymanagement",
         }
 )
 package nl.daniel.dejong.orderfulfillment;

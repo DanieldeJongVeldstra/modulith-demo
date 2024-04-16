@@ -1,5 +1,6 @@
 package nl.daniel.dejong.orderfulfillment.domain.valueobjects;
 
+import com.fasterxml.jackson.annotation.JsonValue;
 import nl.daniel.dejong.common.URN;
 
 import java.util.UUID;
@@ -18,6 +19,7 @@ public class ProductOrderLineId extends URN<UUID> {
         return new ProductOrderLineId(UUID.randomUUID());
     }
 
+    @JsonValue
     public String toString() {
         return super.toString();
     }
